@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 8px;
+}
+::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-cyan-500;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+@layer base {
+    label {
+        @apply text-slate-500;
+    }
+}
+
+@layer components {
+    .table-head {
+        @apply px-4 py-3.5 text-center text-sm font-normal text-gray-700 rtl:text-right;
+    }
+
+    .btn {
+        @apply rounded-md bg-primary px-2 py-1 text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-blue-900;
+    }
+
+    .btn-outline {
+        @apply rounded-md border border-blue-600 bg-white text-blue-600 hover:border-blue-700 hover:text-blue-700 focus:ring focus:ring-blue-200 disabled:cursor-not-allowed;
+    }
+
+    .btn-ghost {
+        @apply rounded-md border border-transparent px-2 py-1 text-blue-500 shadow-none hover:bg-blue-50 active:bg-blue-100 disabled:bg-blue-100;
+    }
+
+    .modal {
+        @apply pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-50 flex items-center justify-center overflow-auto;
+    }
+
+    .modal-content {
+        @apply pointer-events-auto flex flex-col rounded-md bg-white text-dark dark:bg-dark dark:text-light;
+    }
+
+    .req {
+        @apply after:text-red-500 after:content-['_*'];
+    }
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.skeleton {
+    @apply bg-[linear-gradient(to_right,#f6f7f8_0%,#edeef1_20%,#f6f7f8_40%,#f6f7f8_100%)] bg-[700px_100%] bg-no-repeat;
+}
+
+.printable {
+    display: none;
+}
+
+@media print {
+    .non-printable {
+        display: none !important;
+    }
+
+    .printable {
+        display: block;
+    }
+    .print-margin {
+        margin: 0;
+    }
+}
